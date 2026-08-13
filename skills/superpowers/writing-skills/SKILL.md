@@ -17,4 +17,4 @@ description: Create, edit, or audit the Codex-focused Superpowers bundle. Use Co
 
 6. Run `bash skills/superpowers/check-context-budget.sh`, relevant script checks, and `git diff --check`.
 
-Forward-test only when inspection and validators cannot establish activation or high-risk behavior. Use the smallest discriminating scenario and do not leak the expected answer. Report measured size, behavior changes, checks, and untested risk.
+Text validators prove structure, not agent behavior. Forward-test unresolved behavior or activation with the smallest discriminating scenario; do not leak the expected answer. Report measured size, behavior changes, checks, and untested risk.

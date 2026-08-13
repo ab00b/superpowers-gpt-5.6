@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
   <title id="title">GPT-5.6 Superpowers dashboard</title>
-  <desc id="desc">Thirteen runtime SKILL.md files use 2,691 words, 85.5 percent fewer than the 18,516 words in obra/superpowers. Every conversation flows through a newcomer-safe router to mandatory core discipline, minimum extra skills, and proportional verification.</desc>
+  <desc id="desc">Thirteen runtime SKILL.md files use 2,659 words, 87.2 percent fewer than the 20,748 words across fourteen skills in obra/superpowers v6.3. Every conversation flows through a newcomer-safe router to mandatory core discipline, minimum extra skills, and proportional verification.</desc>
   <defs>
     <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0b1020"/>
@@ -34,30 +34,30 @@
 
       <rect x="430" y="118" width="340" height="105" rx="16" fill="#151d35" stroke="#283657"/>
       <text x="454" y="151" fill="#8fa0c4" font-size="13" font-weight="650" letter-spacing="1">SKILL.MD WORDS</text>
-      <text x="454" y="195" fill="#59d5e0" font-size="38" font-weight="760">2,691</text>
+      <text x="454" y="195" fill="#59d5e0" font-size="38" font-weight="760">2,659</text>
       <text x="573" y="194" fill="#c8d4ee" font-size="17">total</text>
 
       <rect x="800" y="118" width="340" height="105" rx="16" fill="#151d35" stroke="#6d5ca5"/>
       <text x="824" y="151" fill="#a99bd8" font-size="13" font-weight="650" letter-spacing="1">CONTEXT REDUCTION</text>
-      <text x="824" y="195" fill="#a78bfa" font-size="38" font-weight="760">85.5%</text>
+      <text x="824" y="195" fill="#a78bfa" font-size="38" font-weight="760">87.2%</text>
       <text x="948" y="194" fill="#c8d4ee" font-size="17">leaner</text>
     </g>
 
     <g>
       <rect x="60" y="249" width="660" height="216" rx="18" fill="#10182d" stroke="#283657"/>
       <text x="86" y="282" fill="#f8fafc" font-size="17" font-weight="700">Skill instruction footprint</text>
-      <text x="694" y="282" fill="#7f90b5" font-size="12" text-anchor="end">wc -w · 13 SKILL.md files</text>
+      <text x="694" y="282" fill="#7f90b5" font-size="12" text-anchor="end">wc -w · local 13 · upstream 14</text>
 
       <text x="86" y="323" fill="#b9c5df" font-size="14">obra/superpowers</text>
-      <text x="694" y="323" fill="#b9c5df" font-size="14" text-anchor="end">18,516 · 100%</text>
+      <text x="694" y="323" fill="#b9c5df" font-size="14" text-anchor="end">20,748 · 100%</text>
       <rect x="86" y="335" width="608" height="18" rx="9" fill="#293450"/>
       <rect x="86" y="335" width="608" height="18" rx="9" fill="#64748b" opacity="0.82"/>
 
       <text x="86" y="390" fill="#d7e2ff" font-size="14" font-weight="650">GPT-5.6 family edition</text>
-      <text x="694" y="390" fill="#59d5e0" font-size="14" font-weight="700" text-anchor="end">2,691 · 14.5%</text>
+      <text x="694" y="390" fill="#59d5e0" font-size="14" font-weight="700" text-anchor="end">2,659 · 12.8%</text>
       <rect x="86" y="402" width="608" height="18" rx="9" fill="#293450"/>
-      <rect x="86" y="402" width="88" height="18" rx="9" fill="url(#accent)"/>
-      <text x="86" y="449" fill="#7f90b5" font-size="12">Pinned to upstream d884ae0 · measured 2026-07-15</text>
+      <rect x="86" y="402" width="78" height="18" rx="9" fill="url(#accent)"/>
+      <text x="86" y="449" fill="#7f90b5" font-size="12">Pinned to upstream v6.3 b36e082 · measured 2026-08-13</text>
     </g>
 
     <g>

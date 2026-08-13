@@ -1,6 +1,12 @@
-# Testing Anti-Patterns
+# Writing Good Tests
 
-Test observable production behavior. Use mocks and doubles only to control a necessary boundary, not as the subject of the test.
+Every test should name a realistic production break. Tests written after code add coverage, but an immediate pass does not prove they detect missing behavior.
+
+## Make Tests Falsifiable
+
+Before writing a test, name the bug it should catch. If only source text, exact wording, private structure, a constant, or documented framework mechanics can fail, test consumer behavior—or write no test. Derive expected values independently with literals or hand-checked fixtures.
+
+Before finishing, mentally mutate a branch, argument, side effect, default return, or validation. If nothing fails, the behavior is unprotected or the test is tautological.
 
 ## Test Real Behavior
 

@@ -12,10 +12,8 @@ if [ $# -ne 2 ]; then
 fi
 
 POLLUTION_CHECK="$1"
-TEST_PATTERN="$2"
-if [[ "$TEST_PATTERN" != ./* ]]; then
-  TEST_PATTERN="./$TEST_PATTERN"
-fi
+TEST_PATTERN="${2#./}"
+COLLAPSED_PATTERN="${TEST_PATTERN//\*\*\//}"
 
 echo "🔍 Searching for test that creates: $POLLUTION_CHECK"
 echo "Test pattern: $TEST_PATTERN"
@@ -25,7 +23,7 @@ echo ""
 TEST_FILES=()
 while IFS= read -r -d '' test_file; do
   TEST_FILES+=("$test_file")
-done < <(find . -path "$TEST_PATTERN" -print0)
+done < <(find . \( -path "./$TEST_PATTERN" -o -path "./$COLLAPSED_PATTERN" \) -print0)
 TOTAL=${#TEST_FILES[@]}
 
 echo "Found $TOTAL test files"

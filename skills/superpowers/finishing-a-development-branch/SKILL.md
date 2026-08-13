@@ -5,18 +5,18 @@ description: Complete an authorized commit, push, integration, PR, branch, or wo
 
 # Finishing a Development Branch
 
-Inspect status, branch, and worktree state with read-only commands. Preserve unrelated user changes.
+Record initial status, branch, and worktree path before state changes; preserve unrelated work.
 
-Confirm the task diff is understood and relevant required checks are fresh for the state to deliver. Do not require a separate plan, log, or reconciliation artifact unless the user or repository does.
+Confirm the task diff and fresh delivery checks. Do not require a separate plan, log, or reconciliation artifact unless the user or repository does.
 
-- If the user or repository policy already authorizes commit or push, perform it after verification.
-- Ask one concise question only when merge, PR, push, retention, or cleanup authority remains unresolved.
-- Do not switch branches, pull, merge into a base branch, create a PR, or force-push without corresponding authority.
-- In a detached or externally managed workspace, report the exact limitation and preserve the work for the host workflow.
-- Remove a worktree only when this session created it, the user authorized cleanup, and no required work remains inside it.
+- Perform already-authorized commit or push after verification.
+- Ask only when merge, PR, push, retention, or cleanup authority is unresolved.
+- Do not switch branches, pull, merge into a base, create a PR, or force-push without authority.
+- In detached or host-managed workspaces, name the limitation and preserve work for the host.
+- Remove only session-created worktrees with cleanup authority and no required work remaining. First run `git status --short --untracked-files=all --ignored=matching`; if nonempty, list entries. Ignore only verified regenerable artifacts; otherwise ask whether to commit, move, or delete. Never force removal without explicit destructive authorization.
 
-If commit or push fails, preserve the verified state and report the original error. Do not pull, rebase, merge, or force without separate authority.
+On commit/push failure, preserve verified state and report the error. Do not pull, rebase, merge, or force without separate authority.
 
-Never offer discard routinely. If requested, show the exact branch, unique commits, uncommitted files, and worktree path at risk; require confirmation containing `discard` for that target.
+Offer discard only when requested. List the branch, unique commits, uncommitted files, and worktree path; require exact affirmative confirmation `discard <target>`.
 
-After delivery, report the checks run, commit or branch state, remote action, and anything deliberately preserved. Use repository command wrappers for every shell command.
+Report checks, commit/branch state, remote action, and preserved work. Use repository wrappers for shell commands.

@@ -15,6 +15,6 @@ For an unclear cause, `systematic-debugging` owns investigation; enter red-green
 4. Implement the smallest production change that passes it.
 5. Run the focused test, refactor only when useful, keep it green, and repeat.
 
-Test public outputs, state, errors, or durable effects. Mock only necessary boundaries. Read [testing-anti-patterns.md](testing-anti-patterns.md) only when adding mocks, doubles, or test-only production APIs.
+Test public outputs, state, errors, or durable effects. Mock only necessary boundaries. When writing or changing a test, read [writing-good-tests.md](writing-good-tests.md).
 
 If automated coverage is impractical, state why and use the strongest boundary, integration, compile, or manual check. Preserve pre-existing user code. Retain the red reason, green result, final proportionate regression result, and any untested behavior.

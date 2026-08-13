@@ -11,25 +11,25 @@
   <a href="skills/superpowers">瀏覽 Skills</a>
 </p>
 
-![GPT-5.6 Superpowers 儀表板，呈現 13 個 skills、2,691 words、精簡 85.5% 及 newcomer-safe routing 流程](assets/readme-dashboard.zh-TW.svg)
+![GPT-5.6 Superpowers 儀表板，呈現 13 個 skills、2,659 words、精簡 87.2% 及 newcomer-safe routing 流程](assets/readme-dashboard.zh-TW.svg)
 
-這個 repository 是 [obra/superpowers](https://github.com/obra/superpowers/tree/main/skills) 的 Codex-native 版本，專為 GPT-5.6 family 調整。
+這是 [eagleagentic/superpowers-gpt-5.6](https://github.com/eagleagentic/superpowers-gpt-5.6) 的持續維護 fork，也是 [obra/superpowers](https://github.com/obra/superpowers/tree/main/skills) 的 Codex-native 版本，專為 GPT-5.6 family 調整。
 
-我們已依 OpenAI 官方的 [GPT-5.6 prompting guidance](https://developers.openai.com/api/docs/guides/prompt-guidance-gpt-5p6)，審查並最佳化全部 13 個 Superpowers skills。更新後的 prompt stack 明確保留成果、限制、證據、完成標準、授權邊界與驗證要求，同時移除不必要的流程負擔。
+我們已依 OpenAI 官方的 [GPT-5.6 prompting guidance](https://developers.openai.com/api/docs/guides/prompt-guidance-gpt-5p6)，審查並最佳化全部 13 個 Superpowers skills。更新後的 prompt stack 明確保留成果、限制、證據、完成標準、授權邊界與驗證要求，同時移除不必要的流程負擔。上游 v6.2/v6.3 的改進只在能提升成果、又不會恢復另一套 orchestration layer 時才回移。
 
 ### 目前量測結果
 
 | 指標 | 目前數值 |
 | --- | ---: |
 | Runtime skills | 13 |
-| Runtime `SKILL.md` words | 2,691 |
+| Runtime `SKILL.md` words | 2,659 |
 | Always-on `using-superpowers` router | 179 words |
-| On-demand support Markdown | 1,655 words |
+| On-demand support Markdown | 1,730 words |
 | Skill description metadata | 2,165 characters |
-| 固定上游 `SKILL.md` words | 18,516 |
-| Runtime words 精簡幅度 | 85.5% |
+| 固定上游 v6.3 `SKILL.md` words | 20,748 |
+| Runtime words 精簡幅度 | 87.2% |
 
-以上數字於 2026-07-15 使用 repository context-budget validator 與 `wc -w` 量測；上游基準維持固定在 commit [`d884ae0`](https://github.com/obra/superpowers/tree/d884ae04edebef577e82ff7c4e143debd0bbec99/skills)。
+以上數字於 2026-08-13 使用 repository context-budget validator 與 `wc -w` 量測；上游基準固定在 v6.3 commit [`b36e082`](https://github.com/obra/superpowers/tree/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills)。
 
 ## 安裝與快速設定
 
@@ -45,7 +45,7 @@ set -eu
 repo="$HOME/.agents/superpowers-gpt-5.6"
 skills_dir="$HOME/.agents/skills"
 
-git clone --depth 1 https://github.com/eagleagentic/superpowers-gpt-5.6.git "$repo"
+git clone --depth 1 https://github.com/ab00b/superpowers-gpt-5.6.git "$repo"
 mkdir -p "$skills_dir"
 
 for skill in "$repo"/skills/superpowers/*; do
@@ -71,7 +71,7 @@ done
 
 ```text
 Use $skill-installer to install every direct child directory containing SKILL.md from
-https://github.com/eagleagentic/superpowers-gpt-5.6/tree/main/skills/superpowers.
+https://github.com/ab00b/superpowers-gpt-5.6/tree/main/skills/superpowers.
 Install all 13 skills; do not install skills/superpowers as a single skill.
 ```
 
@@ -91,7 +91,7 @@ Symlinks 會持續指向更新後的 skill directories。
 
 我們的團隊最初直接使用 obra/superpowers。在日常 Codex CLI 與 GPT-5.6 family workflows 中，我們實際觀察到 iteration 明顯變慢：mandatory skill activation、較長的指令及固定 process chains 增加了協調 latency 與 token overhead。這是我們在上述 workflows 中的實際使用觀察，不是涵蓋所有平台的通用 latency benchmark。
 
-因此，我們建立這個 tailored edition：保留上游能改善成果的工程紀律，同時配合 Codex 已具備的原生能力。它壓縮 instructions，並由 router 強制所有非 Mechanical implementation 執行輕量核心流程，只在風險足以支持時載入額外 process skills。目前 13 個 runtime `SKILL.md` 合計 **2,691 words，相較上游的 18,516 words 精簡 85.5%**。
+因此，我們建立這個 tailored edition：保留上游能改善成果的工程紀律，同時配合 Codex 已具備的原生能力。它壓縮 instructions，並由 router 強制所有非 Mechanical implementation 執行輕量核心流程，只在風險足以支持時載入額外 process skills。目前 13 個 runtime `SKILL.md` 合計 **2,659 words，相較上游 v6.3 的 14 個 skills、20,748 words 精簡 87.2%**。
 
 > **關鍵差異：** `using-superpowers` 仍會在每次對話開始時啟動。它強制輕量 implementation loop，而不是強制所有工作建立 durable artifacts。
 
@@ -105,7 +105,7 @@ Symlinks 會持續指向更新後的 skill directories。
 
 | 精簡 context | 更低的協調成本 | 更安全的授權邊界 |
 | :--- | :--- | :--- |
-| 13 個 runtime `SKILL.md` 合計 2,691 words，比上游少 85.5%。 | 強制核心紀律 inline 執行；durable artifacts 維持風險導向。 | 保留使用者既有變更；破壞性或對外可見的操作必須先取得授權。 |
+| 13 個 runtime `SKILL.md` 合計 2,659 words，比上游 v6.3 少 87.2%。 | 強制核心紀律 inline 執行；durable artifacts 維持風險導向。 | 保留使用者既有變更；破壞性或對外可見的操作必須先取得授權。 |
 
 ## 與 obra/superpowers 比較
 
@@ -121,7 +121,7 @@ Symlinks 會持續指向更新後的 skill directories。
 | Verification | 聚焦 checks 與 final diff review 必須執行；獨立 gate 依風險使用 | Universal completion gate |
 | 目標環境 | Codex CLI 與 GPT-5.6 family | 多種 agent harnesses |
 
-比較基準固定為上游 commit [`d884ae0`](https://github.com/obra/superpowers/tree/d884ae04edebef577e82ff7c4e143debd0bbec99/skills)。2026-07-15 使用 `wc -w` 重新量測雙方 13 個 runtime `SKILL.md`：**本版 2,691 words，上游 18,516 words**。
+比較基準固定為上游 v6.3 commit [`b36e082`](https://github.com/obra/superpowers/tree/b36e0829c6d0140e93cfef2ca599b1b07d4a7797/skills)。2026-08-13 使用 `wc -w` 重新量測：**本版 13 個 runtime skills 合計 2,659 words，上游 14 個 skills 合計 20,748 words**。
 
 ## 探索 Skills
 
@@ -139,4 +139,4 @@ Sync script 會保護這份 tailored profile；只有明確傳入 `--replace-tai
 
 ## 上游致謝
 
-本專案改作自 Jesse Vincent 的 [obra/superpowers](https://github.com/obra/superpowers)。更聚焦的 Codex 定位、adaptive routing policy、精簡指令與 Codex-specific tooling，正是本版更適合 GPT-5.6 family 的原因。
+這個持續維護 fork 建立在 [eagleagentic/superpowers-gpt-5.6](https://github.com/eagleagentic/superpowers-gpt-5.6) 之上；原專案改作自 Jesse Vincent 的 [obra/superpowers](https://github.com/obra/superpowers)。更聚焦的 Codex 定位、adaptive routing policy、精簡指令與 Codex-specific tooling，正是本版更適合 GPT-5.6 family 的原因。
